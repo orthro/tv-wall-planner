@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#141211">
+  <title>TV Accent Wall Planner</title>
+  <meta name="description" content="Design a custom TV accent wall in 3D, then download or send your concept.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span id="brand-name">Planner</span><span id="brand-tagline" class="brand-tagline"></span></div>
+    <a id="back-link" class="back-link" href="#">← Back to site</a>
+  </header>
+
+  <main class="planner">
+    <!-- 3D preview -->
+    <section class="preview-panel card" aria-label="3D preview of your wall">
+      <div id="preview">
+        <p id="preview-loading" class="preview-msg">Building your wall…</p>
+        <p id="preview-fallback" class="preview-msg" hidden>The 3D preview couldn't load in this browser — you can still design your wall and send it.</p>
+        <p id="preview-hint" class="preview-hint" hidden>Drag to look around · pinch or Ctrl + scroll to zoom · double-click to recentre</p>
+      </div>
+      <div id="toolbar" class="toolbar" role="toolbar" aria-label="Preview controls">
+        <div class="tool-group" role="group" aria-label="Lighting">
+          <span class="tool-label" aria-hidden="true">Light</span>
+          <button type="button" data-light="bright" aria-pressed="true">Bright</button>
+          <button type="button" data-light="ambient" aria-pressed="false">Ambient</button>
+          <button type="button" data-light="dim" aria-pressed="false">Dim</button>
+        </div>
+        <div class="tool-group" role="group" aria-label="Camera view">
+          <span class="tool-label" aria-hidden="true">View</span>
+          <button type="button" data-view="front" aria-pressed="true">Front</button>
+          <button type="button" data-view="angle" aria-pressed="false">Angle</button>
+          <button type="button" data-view="detail" aria-pressed="false">Detail</button>
+          <button type="button" data-view="room" aria-pressed="false">Room</button>
+        </div>
+        <span class="spacer" aria-hidden="true"></span>
+        <div class="tool-group" role="group" aria-label="Zoom">
+          <button type="button" class="icon-btn" data-zoom="-1" aria-label="Zoom out">−</button>
+          <button type="button" class="icon-btn" data-zoom="+1" aria-label="Zoom in">+</button>
+          <button type="button" data-action="reset">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wizard -->
+    <section class="wizard-panel" aria-label="Design steps">
+      <div class="intro">
+        <h1>Design your TV accent wall</h1>
+        <p class="lede">Start from a preset or pick finishes step by step — the wall updates live.</p>
+        <div id="presets" class="presets" role="group" aria-label="Design presets"></div>
+        <label class="load-design" for="load-design">Load a design you saved earlier
+          <input id="load-design" type="file" accept=".json,application/json">
+        </label>
+      </div>
+      <div id="wizard" class="wizard card"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Nothing here is a quote. We measure properly before any work is priced. Nothing is sent until you press Send.</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="config.js"></script>
+  <script src="preview.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
